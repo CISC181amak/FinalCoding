@@ -3,6 +3,7 @@ package domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class RateDomainModel implements Serializable {
 	
@@ -10,8 +11,23 @@ public class RateDomainModel implements Serializable {
 	private int MinCreditScore;
 	private double InterestRate;
 	
-	public RateDomainModel()
+	protected RateDomainModel()
+	{}
+	
+	public RateDomainModel(int RateID, int MinCreditScore, double InterestRate)
 	{
+		super();
+		this.RateID = RateID;		
+		this.MinCreditScore = MinCreditScore;
+		this.InterestRate = InterestRate;
+	}
+	
+	public RateDomainModel(RateDomainModel rate)
+	{
+		super();
+		this.RateID = rate.getRateID();
+		this.MinCreditScore = rate.getMinCreditScore();
+		this.InterestRate = rate.getInterestRate();
 		
 	}
 	public int getRateID() {
